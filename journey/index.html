@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>do not stop the car</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <audio id="click-sound" src="assets/sounds/845147__sadiquecat__airplane-ding.wav"></audio>
+
+  <div class="col" id="c1" onclick="expand(1)">
+    <div class="iframe-wrap"><iframe src="room1.html"></iframe></div>
+  </div>
+
+  <div class="col" id="c2" onclick="expand(2)">
+    <div class="iframe-wrap"><iframe src="room2.html"></iframe></div>
+  </div>
+
+  <div class="col" id="c3" onclick="expand(3)">
+    <div class="iframe-wrap"><iframe src="room3.html"></iframe></div>
+  </div>
+
+  <div class="col" id="c4" onclick="expand(4)">
+    <div class="iframe-wrap"><iframe src="room4.html"></iframe></div>
+  </div>
+
+  <div class="col" id="c5" onclick="expand(5)">
+    <div class="iframe-wrap"><iframe src="room5.html"></iframe></div>
+  </div>
+
+  <!-- TOP SEMICIRCLE + TOP TEXT (styled like bottom) -->
+  <div class="semicircleTop hidden" id="semiTop"></div>
+  <div class="topText" id="topLabel">summoning for you</div>
+
+  <!-- BOTTOM SEMICIRCLE + BOTTOM TEXT -->
+  <div class="semicircle hidden" id="semicircle"></div>
+  <div class="texts" id="label"></div>
+
+  <script>
+    const texts = {
+      1: 'do not stop driving.',
+      2: 'allah is everywhere.',
+      3: 'take a breather.',
+      4: 'keep going.',
+      5: 'we will find a way.',
+    };
+
+    let current = null;
+
+    function expand(n) {
+      const click = document.getElementById('click-sound');
+      const floater = document.getElementById('label');
+      const semiBottom = document.getElementById('semicircle');
+
+      const topLabel = document.getElementById('topLabel');
+      const semiTop = document.getElementById('semiTop');
+
+      click.currentTime = 0;
+      click.volume = 0.1;
+      click.play();
+
+      // close if clicking same
+      if (current === n) {
+        const col = document.getElementById('c' + n);
+        col.classList.remove('active');
+        col.querySelector('iframe').contentWindow.postMessage('pause', '*');
+
+        current = null;
+
+        floater.classList.remove('visible');
+        semiBottom.classList.add('hidden');
+
+        topLabel.classList.remove('visible');
+        semiTop.classList.add('hidden');
+
+        return;
+      }
+
+      // close previous
+      if (current !== null) {
+        const prevCol = document.getElementById('c' + current);
+        prevCol.classList.remove('active');
+        prevCol.querySelector('iframe').contentWindow.postMessage('pause', '*');
+      }
+
+      // open new
+      const target = document.getElementById('c' + n);
+      target.classList.add('active');
+      current = n;
+
+      // show top + bottom UI
+      semiBottom.classList.remove('hidden');
+      semiTop.classList.remove('hidden');
+      topLabel.classList.add('visible');
+
+      floater.classList.remove('visible');
+      setTimeout(() => {
+        floater.textContent = texts[n];
+        floater.classList.add('visible');
+      }, 50);
+    }
+  </script>
+</body>
+</html>
