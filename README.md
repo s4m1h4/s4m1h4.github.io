@@ -12,4 +12,4 @@ https://s4m1h4.github.io/journey/
 https://s4m1h4.github.io/slapslap/ 
 
 
-https://s4m1h4.github.io/samiha's%20wiki%20scrambler/  
+https://s4m1h4.github.io/samihaswikiscrambler/  
