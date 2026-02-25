@@ -1,0 +1,68 @@
+<head>
+	<title>hunting, longing</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="view">
+	<div class="gridback blurred"></div>
+	<div class="gridback clear">
+		<img src="photos/myself.png" class="myself">
+	</div>
+	<div class="overlay"></div>
+
+	<div class="texttext">
+	   	<span>find yourself</span>
+	</div>
+</div>
+
+<script>
+  const clear = document.querySelector('.clear');
+  const blurred = document.querySelector('.blurred');
+  const overlay = document.querySelector('.overlay');
+  const texttext = document.querySelector('.texttext');
+
+  const gridWidth = 12000;
+  const gridHeight = 7000;
+  
+  let scrollX = 0;
+  let scrollY = 0;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  
+  function updateMaskPosition() {
+    clear.style.setProperty('--x', `${mouseX - scrollX}px`);
+    clear.style.setProperty('--y', `${mouseY - scrollY}px`);
+    overlay.style.setProperty('--x', `${mouseX - scrollX}px`);
+    overlay.style.setProperty('--y', `${mouseY - scrollY}px`);
+    texttext.style.setProperty('--x', `${mouseX}px`);
+    texttext.style.setProperty('--y', `${mouseY}px`);
+  }
+  
+  updateMaskPosition();
+  
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    updateMaskPosition();
+  }, { passive: true });
+  
+  window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    scrollX -= e.deltaX;
+    scrollY -= e.deltaY;
+
+    const minScrollX = -(gridWidth - window.innerWidth);
+    const minScrollY = -(gridHeight - window.innerHeight);
+    
+    scrollX = Math.min(0, Math.max(scrollX, minScrollX));
+    scrollY = Math.min(0, Math.max(scrollY, minScrollY));
+    
+    blurred.style.transform = `translate(${scrollX}px, ${scrollY}px)`;
+    clear.style.transform = `translate(${scrollX}px, ${scrollY}px)`;
+    overlay.style.transform = `translate(${scrollX}px, ${scrollY}px)`;
+    updateMaskPosition();
+  }, { passive: false });
+
+
+</script>
+</body>

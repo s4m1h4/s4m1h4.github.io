@@ -1,0 +1,115 @@
+body{
+	margin: 0;
+	background-color: #fbf9e6;
+	cursor: none;
+}
+
+.view{
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+
+}
+
+.gridback{
+	position: absolute;
+	inset: 0;
+	width: 12000px;
+	height: 7000px;
+	background-image: url("photos/eye.png");
+	background-color: #fbf9e6;
+	background-repeat: repeat;
+	background-position: top left;
+	background-size: 360px auto;
+}
+
+.myself {
+	position: absolute;
+	top: 2025px; 
+	left: 4215px;
+	/*
+	top: 2025px; 
+	left: 4215px;
+	*/
+	width: 250px;
+	height: auto;
+	mask-image: radial-gradient(
+		circle at center,
+		rgb(255, 230, 180) 0%, 
+  		rgb(255, 230, 180) 80%,
+  		rgba(255, 230, 180, 0.3) 100%,
+  		transparent 50%);
+	-webkit-mask-image: radial-gradient(
+		circle at center,
+	    rgb(255, 230, 180) 0%,
+  		rgb(255, 230, 180) 80%,
+  		rgba(255, 230, 180, 0.3) 95%,
+  		transparent 80%);
+	opacity: 0.85;
+  	pointer-events: none;
+}
+
+.blurred {
+		filter: blur(6px);
+		z-index: 1;
+		 background-color: rgba(0, 0, 0, 0.5);
+		
+}
+.clear {
+	z-index: 2;
+	--x:50vw;
+	--y:50vh;
+
+	mask-image: radial-gradient(
+		circle 400px at var(--x) var(--y),
+		black 0%,
+		black 45%,
+		transparent 70% );
+
+	-webkit-mask-image:radial-gradient(
+		circle 400px at var(--x) var(--y),
+        black 0%,
+		black 45%,
+		transparent 70% );
+}
+
+.overlay {
+	position:absolute;
+	inset: 0;
+	width: 12000px;
+	height: 7000px;
+	z-index: 3;
+	--x: 50vw;
+	--y: 50vh;
+	background: radial-gradient(
+		circle 400px at var(--x) var(--y),
+		rgba(100, 150, 255, 0.3) 0%,
+		rgba(100, 150, 255, 0.3) 45%,
+		transparent 70%
+	);
+	pointer-events: none;
+	will-change: transform;
+}
+
+.texttext {
+	position: fixed;
+	left: var(--x);
+	top: var(--y);
+	transform: translate(-50%, -200px);
+	z-index: 4;
+	pointer-events: none;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	color: rgba(255, 255, 255, 1);
+	filter: blur(1.5px);
+	text-transform: lowercase;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	text-shadow: 
+		0 0 10px rgba(255, 140, 0, 0.8),
+		0 0 20px rgba(255, 140, 0, 0.6),
+		0 0 30px rgba(255, 140, 0, 0.4);
+}
+
+
+
