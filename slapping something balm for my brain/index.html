@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bob edited</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    cursor: crosshair;
+    background-color: #b0b8c1;
+    background-image:
+      repeating-linear-gradient(105deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 4px),
+      repeating-linear-gradient(15deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 5px),
+      linear-gradient(160deg, #c8cfd6 0%, #9aa3ad 40%, #b2bac2 70%, #8e9aa5 100%);
+  }
+
+  canvas { position: fixed; top: 0; left: 0; }
+  .ui{
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+.ui button{
+  pointer-events: auto;
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.85);
+  background: rgba(255,255,255,0.8);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  user-select: none;
+}
+.ui button.is-on{
+  background: rgba(0,0,0,0.85);
+  color: white;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="ui">
+  <button id="saveBtn">Save PNG</button>
+  <button id="undoBtn">Undo</button>
+  <button id="deleteBtn">Delete: OFF</button>
+</div>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function fit(){
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = Math.floor(window.innerWidth * dpr);
+  canvas.height = Math.floor(window.innerHeight * dpr);
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // draw in CSS pixels
+  redraw();
+}
+addEventListener('resize', fit);
+
+const words = ["murmur","ornament","after","what","sleep","dead","dig","swim","language","easy","above","every","repulsive","true","false","emerge","temperature","between","almost","mist","deliver","yard","vision","wind","sordid","go","like","lather","wither","scream","rock","drive","love","will","by","shadow","sky","bare","never","pole","north","south","east","west","storm","red","blue","yellow","skin","liver","lungs","eyes","may","over","cry","apparatus","condition","play","fight","you","fresh","flood","music","juice","blood","soar","road","languid","incubate","bitter","sweet","spicy","sour","ache","answer"];
+
+const colors = ['#F5C400','#E8A000','#C8392B','#E84A3A','#4A6FA5','#2E4E7E','#6B7B8D','#F0E6C8','#D4C5A0','#8B4513','#5D4E37'];
+
+const rand = (min, max) => Math.random() * (max - min) + min;
+const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+
+function makePoints(r, sides) {
+  const pts = [];
+  for (let i = 0; i < sides; i++) {
+    const a = (i / sides) * Math.PI * 2 - Math.PI / 2;
+    const radius = r * rand(0.6, 1.4);
+    const angle = a + rand(-0.3, 0.3);
+    pts.push([ radius * Math.cos(angle), radius * Math.sin(angle) ]);
+  }
+  return pts;
+}
+
+// ---- Store stickers so we can redraw + delete ----
+const stickers = [];
+let deleteMode = false;
+
+// Create a sticker object (same randomness as before)
+function createSticker(mx, my){
+  const rotation = rand(-0.6, 0.6);
+  const type = Math.random();
+  const kind = type < 0.4 ? 'shape' : type < 0.8 ? 'text' : 'shaptext';
+  const color = pick(colors);
+  const points = makePoints(rand(35, 100), (rand(5, 11) | 0));
+  const word = pick(words);
+  const fontSize = rand(16, 60) | 0;
+
+  // quick approximate hit radius for deletion
+  const maxR = points.reduce((m, [px,py]) => Math.max(m, Math.hypot(px,py)), 0);
+
+  return { x: mx, y: my, rotation, kind, color, points, word, fontSize, hitR: maxR + 14 };
+}
+
+function drawStickerObj(s){
+  ctx.save();
+  ctx.translate(s.x, s.y);
+  ctx.rotate(s.rotation);
+
+  if (s.kind !== 'text') {
+    ctx.beginPath();
+    ctx.moveTo(s.points[0][0], s.points[0][1]);
+    for (let i = 1; i < s.points.length; i++) ctx.lineTo(s.points[i][0], s.points[i][1]);
+    ctx.closePath();
+    ctx.fillStyle = s.color;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.85)';
+    ctx.lineWidth = 4;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+  }
+
+  if (s.kind !== 'shape') {
+    ctx.font = `bold ${s.fontSize}px Arial, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.strokeStyle = 'rgba(0,0,0,0.95)';
+    ctx.lineWidth = s.fontSize * 0.18;
+    ctx.strokeText(s.word, 0, 0);
+    ctx.fillStyle = '#fff';
+    ctx.fillText(s.word, 0, 0);
+  }
+
+  ctx.restore();
+}
+
+function redraw(){
+  // clear canvas (transparent) so your body background shows through
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  for(const s of stickers) drawStickerObj(s);
+}
+
+// hit test: find topmost sticker under the click
+function findStickerIndexAt(mx, my){
+  for(let i = stickers.length - 1; i >= 0; i--){
+    const s = stickers[i];
+    const dx = mx - s.x;
+    const dy = my - s.y;
+    if (dx*dx + dy*dy <= s.hitR*s.hitR) return i;
+  }
+  return -1;
+}
+
+// Click behavior: add OR delete
+canvas.addEventListener('click', (e) => {
+  const mx = e.clientX;
+  const my = e.clientY;
+
+  if(deleteMode){
+    const idx = findStickerIndexAt(mx, my);
+    if(idx !== -1){
+      stickers.splice(idx, 1);
+      redraw();
+    }
+    return;
+  }
+
+  stickers.push(createSticker(mx, my));
+  redraw();
+});
+
+// ---- UI buttons ----
+const saveBtn = document.getElementById('saveBtn');
+const undoBtn = document.getElementById('undoBtn');
+const deleteBtn = document.getElementById('deleteBtn');
+
+saveBtn.addEventListener('click', () => {
+  // Export canvas only (background will be transparent; that's usually nice).
+  // If you want the background baked in too, tell me and I'll include it.
+  const a = document.createElement('a');
+  a.download = 'stickers.png';
+  a.href = canvas.toDataURL('image/png');
+  a.click();
+});
+
+undoBtn.addEventListener('click', () => {
+  stickers.pop();
+  redraw();
+});
+
+deleteBtn.addEventListener('click', () => {
+  deleteMode = !deleteMode;
+  deleteBtn.classList.toggle('is-on', deleteMode);
+  deleteBtn.textContent = deleteMode ? 'Delete: ON' : 'Delete: OFF';
+  document.body.style.cursor = deleteMode ? 'not-allowed' : 'crosshair';
+});
+
+// start
+fit();
+</script>
+</body>
+</html>
+</body>
+</html>
