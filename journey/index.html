@@ -32,11 +32,11 @@
     <div class="iframe-wrap"><iframe src="room5.html"></iframe></div>
   </div>
 
-  <!-- TOP SEMICIRCLE + TOP TEXT (styled like bottom) -->
+
   <div class="semicircleTop hidden" id="semiTop"></div>
   <div class="topText" id="topLabel">summoning for you</div>
 
-  <!-- BOTTOM SEMICIRCLE + BOTTOM TEXT -->
+
   <div class="semicircle hidden" id="semicircle"></div>
   <div class="texts" id="label"></div>
 
@@ -63,7 +63,7 @@
       click.volume = 0.1;
       click.play();
 
-      // close if clicking same
+
       if (current === n) {
         const col = document.getElementById('c' + n);
         col.classList.remove('active');
@@ -80,19 +80,19 @@
         return;
       }
 
-      // close previous
+
       if (current !== null) {
         const prevCol = document.getElementById('c' + current);
         prevCol.classList.remove('active');
         prevCol.querySelector('iframe').contentWindow.postMessage('pause', '*');
       }
 
-      // open new
+
       const target = document.getElementById('c' + n);
       target.classList.add('active');
       current = n;
 
-      // show top + bottom UI
+
       semiBottom.classList.remove('hidden');
       semiTop.classList.remove('hidden');
       topLabel.classList.add('visible');
