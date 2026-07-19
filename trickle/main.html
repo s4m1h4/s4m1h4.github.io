@@ -1,0 +1,4202 @@
+<html>
+    <head>
+        <title>trickle </title>
+        <style>
+        body {
+        margin: 0;
+        min-height: 100vh;
+        background: #ffffff;
+        color: #000000;
+        font-family: 'Courier New', monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+         justify-content: center;
+         overflow: auto;
+         padding-left: 6vw;
+}
+         .title-image {
+             max-width: 200px;
+            margin-bottom: 2rem;
+            }
+        .page {
+            margin: 0;
+            width: 800px;
+            text-align: left;
+            }
+        .character {
+             position: relative;
+             display: inline-block;
+             width: 0.75em;
+            height: 1.5em;
+            text-align: center;
+            }
+        .layer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 254, 254, 1.0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        .letter {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+            }
+            .cb {
+                display: none;
+            }
+            .cb3:checked ~ .letter {
+                opacity: 1;
+                }
+           .cb:checked + .layer {
+            opacity: 0;
+            pointer-events: none;
+            }
+        .lev3 { z-index: 3; }
+        .lev2 { z-index: 2; }
+        .lev1 { z-index: 1; }
+        .word {
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .line {
+            display: block;
+            white-space: nowrap;
+        }
+        .gap-normal {
+            display: inline-block;
+            width: 0.6em;
+        }
+        .gap-long {
+            display: inline-block;
+            width: 4em;
+        }
+        .line-break {
+         height: 2rem;
+        }
+    
+        </style>
+    </head>
+    <body>
+        <img src="title.png" alt="trickle" class="title-image">
+        <div class="page">
+    
+    
+            <!-- sunlight streaming in            i miss you! -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-0" class="cb">
+                    <label for="c3-0" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-0" class="cb">
+                    <label for="c2-0" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-0" class="cb cb3">
+                    <label for="c1-0" class="layer lev1">✦</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-1" class="cb">
+                    <label for="c3-1" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-1" class="cb">
+                    <label for="c2-1" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-1" class="cb cb3">
+                    <label for="c1-1" class="layer lev1">✱</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-2" class="cb">
+                    <label for="c3-2" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-2" class="cb">
+                    <label for="c2-2" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-2" class="cb cb3">
+                    <label for="c1-2" class="layer lev1">✥</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-3" class="cb">
+                    <label for="c3-3" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-3" class="cb">
+                    <label for="c2-3" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-3" class="cb cb3">
+                    <label for="c1-3" class="layer lev1">❃</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-4" class="cb">
+                    <label for="c3-4" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-4" class="cb">
+                    <label for="c2-4" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-4" class="cb cb3">
+                    <label for="c1-4" class="layer lev1">❤︎</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-5" class="cb">
+                    <label for="c3-5" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-5" class="cb">
+                    <label for="c2-5" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-5" class="cb cb3">
+                    <label for="c1-5" class="layer lev1">❖</label>
+
+                    <span class="letter">g</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-6" class="cb">
+                    <label for="c3-6" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-6" class="cb">
+                    <label for="c2-6" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-6" class="cb cb3">
+                    <label for="c1-6" class="layer lev1">❉</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-7" class="cb">
+                    <label for="c3-7" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-7" class="cb">
+                    <label for="c2-7" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-7" class="cb cb3">
+                    <label for="c1-7" class="layer lev1">☆</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-8" class="cb">
+                    <label for="c3-8" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-8" class="cb">
+                    <label for="c2-8" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-8" class="cb cb3">
+                    <label for="c1-8" class="layer lev1">✦</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-9" class="cb">
+                    <label for="c3-9" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-9" class="cb">
+                    <label for="c2-9" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-9" class="cb cb3">
+                    <label for="c1-9" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-10" class="cb">
+                    <label for="c3-10" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-10" class="cb">
+                    <label for="c2-10" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-10" class="cb cb3">
+                    <label for="c1-10" class="layer lev1">✥</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-11" class="cb">
+                    <label for="c3-11" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-11" class="cb">
+                    <label for="c2-11" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-11" class="cb cb3">
+                    <label for="c1-11" class="layer lev1">❃</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-12" class="cb">
+                    <label for="c3-12" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-12" class="cb">
+                    <label for="c2-12" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-12" class="cb cb3">
+                    <label for="c1-12" class="layer lev1">❤︎</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-13" class="cb">
+                    <label for="c3-13" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-13" class="cb">
+                    <label for="c2-13" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-13" class="cb cb3">
+                    <label for="c1-13" class="layer lev1">❖</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-14" class="cb">
+                    <label for="c3-14" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-14" class="cb">
+                    <label for="c2-14" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-14" class="cb cb3">
+                    <label for="c1-14" class="layer lev1">❉</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-15" class="cb">
+                    <label for="c3-15" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-15" class="cb">
+                    <label for="c2-15" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-15" class="cb cb3">
+                    <label for="c1-15" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-16" class="cb">
+                    <label for="c3-16" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-16" class="cb">
+                    <label for="c2-16" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-16" class="cb cb3">
+                    <label for="c1-16" class="layer lev1">✦</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-17" class="cb">
+                    <label for="c3-17" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-17" class="cb">
+                    <label for="c2-17" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-17" class="cb cb3">
+                    <label for="c1-17" class="layer lev1">✱</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-18" class="cb">
+                    <label for="c3-18" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-18" class="cb">
+                    <label for="c2-18" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-18" class="cb cb3">
+                    <label for="c1-18" class="layer lev1">✥</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-19" class="cb">
+                    <label for="c3-19" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-19" class="cb">
+                    <label for="c2-19" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-19" class="cb cb3">
+                    <label for="c1-19" class="layer lev1">❃</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-20" class="cb">
+                    <label for="c3-20" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-20" class="cb">
+                    <label for="c2-20" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-20" class="cb cb3">
+                    <label for="c1-20" class="layer lev1">❤︎</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-21" class="cb">
+                    <label for="c3-21" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-21" class="cb">
+                    <label for="c2-21" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-21" class="cb cb3">
+                    <label for="c1-21" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-22" class="cb">
+                    <label for="c3-22" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-22" class="cb">
+                    <label for="c2-22" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-22" class="cb cb3">
+                    <label for="c1-22" class="layer lev1">❉</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-23" class="cb">
+                    <label for="c3-23" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-23" class="cb">
+                    <label for="c2-23" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-23" class="cb cb3">
+                    <label for="c1-23" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-24" class="cb">
+                    <label for="c3-24" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-24" class="cb">
+                    <label for="c2-24" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-24" class="cb cb3">
+                    <label for="c1-24" class="layer lev1">✦</label>
+
+                    <span class="letter">y</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-25" class="cb">
+                    <label for="c3-25" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-25" class="cb">
+                    <label for="c2-25" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-25" class="cb cb3">
+                    <label for="c1-25" class="layer lev1">✱</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-26" class="cb">
+                    <label for="c3-26" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-26" class="cb">
+                    <label for="c2-26" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-26" class="cb cb3">
+                    <label for="c1-26" class="layer lev1">✥</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-27" class="cb">
+                    <label for="c3-27" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-27" class="cb">
+                    <label for="c2-27" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-27" class="cb cb3">
+                    <label for="c1-27" class="layer lev1">❃</label>
+
+                    <span class="letter">!</span>
+                </span>
+            </span>
+        </div>
+        <!-- i want to know! again      -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-28" class="cb">
+                    <label for="c3-28" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-28" class="cb">
+                    <label for="c2-28" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-28" class="cb cb3">
+                    <label for="c1-28" class="layer lev1">❤︎</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-29" class="cb">
+                    <label for="c3-29" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-29" class="cb">
+                    <label for="c2-29" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-29" class="cb cb3">
+                    <label for="c1-29" class="layer lev1">❖</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-30" class="cb">
+                    <label for="c3-30" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-30" class="cb">
+                    <label for="c2-30" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-30" class="cb cb3">
+                    <label for="c1-30" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-31" class="cb">
+                    <label for="c3-31" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-31" class="cb">
+                    <label for="c2-31" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-31" class="cb cb3">
+                    <label for="c1-31" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-32" class="cb">
+                    <label for="c3-32" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-32" class="cb">
+                    <label for="c2-32" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-32" class="cb cb3">
+                    <label for="c1-32" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-33" class="cb">
+                    <label for="c3-33" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-33" class="cb">
+                    <label for="c2-33" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-33" class="cb cb3">
+                    <label for="c1-33" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-34" class="cb">
+                    <label for="c3-34" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-34" class="cb">
+                    <label for="c2-34" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-34" class="cb cb3">
+                    <label for="c1-34" class="layer lev1">✥</label>
+
+                    <span class="letter">o</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-35" class="cb">
+                    <label for="c3-35" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-35" class="cb">
+                    <label for="c2-35" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-35" class="cb cb3">
+                    <label for="c1-35" class="layer lev1">❃</label>
+
+                    <span class="letter">k</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-36" class="cb">
+                    <label for="c3-36" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-36" class="cb">
+                    <label for="c2-36" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-36" class="cb cb3">
+                    <label for="c1-36" class="layer lev1">❤︎</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-37" class="cb">
+                    <label for="c3-37" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-37" class="cb">
+                    <label for="c2-37" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-37" class="cb cb3">
+                    <label for="c1-37" class="layer lev1">❖</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-38" class="cb">
+                    <label for="c3-38" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-38" class="cb">
+                    <label for="c2-38" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-38" class="cb cb3">
+                    <label for="c1-38" class="layer lev1">❉</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-39" class="cb">
+                    <label for="c3-39" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-39" class="cb">
+                    <label for="c2-39" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-39" class="cb cb3">
+                    <label for="c1-39" class="layer lev1">☆</label>
+
+                    <span class="letter">!</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-40" class="cb">
+                    <label for="c3-40" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-40" class="cb">
+                    <label for="c2-40" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-40" class="cb cb3">
+                    <label for="c1-40" class="layer lev1">✦</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-41" class="cb">
+                    <label for="c3-41" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-41" class="cb">
+                    <label for="c2-41" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-41" class="cb cb3">
+                    <label for="c1-41" class="layer lev1">✱</label>
+
+                    <span class="letter">g</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-42" class="cb">
+                    <label for="c3-42" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-42" class="cb">
+                    <label for="c2-42" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-42" class="cb cb3">
+                    <label for="c1-42" class="layer lev1">✥</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-43" class="cb">
+                    <label for="c3-43" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-43" class="cb">
+                    <label for="c2-43" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-43" class="cb cb3">
+                    <label for="c1-43" class="layer lev1">❃</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-44" class="cb">
+                    <label for="c3-44" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-44" class="cb">
+                    <label for="c2-44" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-44" class="cb cb3">
+                    <label for="c1-44" class="layer lev1">❤︎</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+        </div>
+        <div class="line line-break"></div>
+        <!-- i spend money            i make money            i nourish my body -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-45" class="cb">
+                    <label for="c3-45" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-45" class="cb">
+                    <label for="c2-45" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-45" class="cb cb3">
+                    <label for="c1-45" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-46" class="cb">
+                    <label for="c3-46" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-46" class="cb">
+                    <label for="c2-46" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-46" class="cb cb3">
+                    <label for="c1-46" class="layer lev1">❉</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-47" class="cb">
+                    <label for="c3-47" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-47" class="cb">
+                    <label for="c2-47" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-47" class="cb cb3">
+                    <label for="c1-47" class="layer lev1">☆</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-48" class="cb">
+                    <label for="c3-48" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-48" class="cb">
+                    <label for="c2-48" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-48" class="cb cb3">
+                    <label for="c1-48" class="layer lev1">✦</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-49" class="cb">
+                    <label for="c3-49" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-49" class="cb">
+                    <label for="c2-49" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-49" class="cb cb3">
+                    <label for="c1-49" class="layer lev1">✱</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-50" class="cb">
+                    <label for="c3-50" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-50" class="cb">
+                    <label for="c2-50" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-50" class="cb cb3">
+                    <label for="c1-50" class="layer lev1">✥</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-51" class="cb">
+                    <label for="c3-51" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-51" class="cb">
+                    <label for="c2-51" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-51" class="cb cb3">
+                    <label for="c1-51" class="layer lev1">❃</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-52" class="cb">
+                    <label for="c3-52" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-52" class="cb">
+                    <label for="c2-52" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-52" class="cb cb3">
+                    <label for="c1-52" class="layer lev1">❤︎</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-53" class="cb">
+                    <label for="c3-53" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-53" class="cb">
+                    <label for="c2-53" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-53" class="cb cb3">
+                    <label for="c1-53" class="layer lev1">❖</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-54" class="cb">
+                    <label for="c3-54" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-54" class="cb">
+                    <label for="c2-54" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-54" class="cb cb3">
+                    <label for="c1-54" class="layer lev1">❉</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-55" class="cb">
+                    <label for="c3-55" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-55" class="cb">
+                    <label for="c2-55" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-55" class="cb cb3">
+                    <label for="c1-55" class="layer lev1">☆</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-56" class="cb">
+                    <label for="c3-56" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-56" class="cb">
+                    <label for="c2-56" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-56" class="cb cb3">
+                    <label for="c1-56" class="layer lev1">✦</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-57" class="cb">
+                    <label for="c3-57" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-57" class="cb">
+                    <label for="c2-57" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-57" class="cb cb3">
+                    <label for="c1-57" class="layer lev1">✱</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-58" class="cb">
+                    <label for="c3-58" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-58" class="cb">
+                    <label for="c2-58" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-58" class="cb cb3">
+                    <label for="c1-58" class="layer lev1">✥</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-59" class="cb">
+                    <label for="c3-59" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-59" class="cb">
+                    <label for="c2-59" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-59" class="cb cb3">
+                    <label for="c1-59" class="layer lev1">❃</label>
+
+                    <span class="letter">k</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-60" class="cb">
+                    <label for="c3-60" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-60" class="cb">
+                    <label for="c2-60" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-60" class="cb cb3">
+                    <label for="c1-60" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-61" class="cb">
+                    <label for="c3-61" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-61" class="cb">
+                    <label for="c2-61" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-61" class="cb cb3">
+                    <label for="c1-61" class="layer lev1">❖</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-62" class="cb">
+                    <label for="c3-62" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-62" class="cb">
+                    <label for="c2-62" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-62" class="cb cb3">
+                    <label for="c1-62" class="layer lev1">❉</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-63" class="cb">
+                    <label for="c3-63" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-63" class="cb">
+                    <label for="c2-63" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-63" class="cb cb3">
+                    <label for="c1-63" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-64" class="cb">
+                    <label for="c3-64" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-64" class="cb">
+                    <label for="c2-64" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-64" class="cb cb3">
+                    <label for="c1-64" class="layer lev1">✦</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-65" class="cb">
+                    <label for="c3-65" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-65" class="cb">
+                    <label for="c2-65" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-65" class="cb cb3">
+                    <label for="c1-65" class="layer lev1">✱</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-66" class="cb">
+                    <label for="c3-66" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-66" class="cb">
+                    <label for="c2-66" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-66" class="cb cb3">
+                    <label for="c1-66" class="layer lev1">✥</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-67" class="cb">
+                    <label for="c3-67" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-67" class="cb">
+                    <label for="c2-67" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-67" class="cb cb3">
+                    <label for="c1-67" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-68" class="cb">
+                    <label for="c3-68" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-68" class="cb">
+                    <label for="c2-68" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-68" class="cb cb3">
+                    <label for="c1-68" class="layer lev1">❤︎</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-69" class="cb">
+                    <label for="c3-69" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-69" class="cb">
+                    <label for="c2-69" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-69" class="cb cb3">
+                    <label for="c1-69" class="layer lev1">❖</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-70" class="cb">
+                    <label for="c3-70" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-70" class="cb">
+                    <label for="c2-70" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-70" class="cb cb3">
+                    <label for="c1-70" class="layer lev1">❉</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-71" class="cb">
+                    <label for="c3-71" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-71" class="cb">
+                    <label for="c2-71" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-71" class="cb cb3">
+                    <label for="c1-71" class="layer lev1">☆</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-72" class="cb">
+                    <label for="c3-72" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-72" class="cb">
+                    <label for="c2-72" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-72" class="cb cb3">
+                    <label for="c1-72" class="layer lev1">✦</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-73" class="cb">
+                    <label for="c3-73" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-73" class="cb">
+                    <label for="c2-73" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-73" class="cb cb3">
+                    <label for="c1-73" class="layer lev1">✱</label>
+
+                    <span class="letter">h</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-74" class="cb">
+                    <label for="c3-74" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-74" class="cb">
+                    <label for="c2-74" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-74" class="cb cb3">
+                    <label for="c1-74" class="layer lev1">✥</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-75" class="cb">
+                    <label for="c3-75" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-75" class="cb">
+                    <label for="c2-75" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-75" class="cb cb3">
+                    <label for="c1-75" class="layer lev1">❃</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-76" class="cb">
+                    <label for="c3-76" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-76" class="cb">
+                    <label for="c2-76" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-76" class="cb cb3">
+                    <label for="c1-76" class="layer lev1">❤︎</label>
+
+                    <span class="letter">b</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-77" class="cb">
+                    <label for="c3-77" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-77" class="cb">
+                    <label for="c2-77" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-77" class="cb cb3">
+                    <label for="c1-77" class="layer lev1">❖</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-78" class="cb">
+                    <label for="c3-78" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-78" class="cb">
+                    <label for="c2-78" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-78" class="cb cb3">
+                    <label for="c1-78" class="layer lev1">❉</label>
+
+                    <span class="letter">d</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-79" class="cb">
+                    <label for="c3-79" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-79" class="cb">
+                    <label for="c2-79" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-79" class="cb cb3">
+                    <label for="c1-79" class="layer lev1">☆</label>
+
+                    <span class="letter">y</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-80" class="cb">
+                    <label for="c3-80" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-80" class="cb">
+                    <label for="c2-80" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-80" class="cb cb3">
+                    <label for="c1-80" class="layer lev1">✦</label>
+
+                    <span class="letter">.</span>
+                </span>
+            </span>
+        </div>
+        <!-- the carpet beneath me           needs a spiritual cleansing -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-81" class="cb">
+                    <label for="c3-81" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-81" class="cb">
+                    <label for="c2-81" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-81" class="cb cb3">
+                    <label for="c1-81" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-82" class="cb">
+                    <label for="c3-82" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-82" class="cb">
+                    <label for="c2-82" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-82" class="cb cb3">
+                    <label for="c1-82" class="layer lev1">✥</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-83" class="cb">
+                    <label for="c3-83" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-83" class="cb">
+                    <label for="c2-83" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-83" class="cb cb3">
+                    <label for="c1-83" class="layer lev1">❃</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-84" class="cb">
+                    <label for="c3-84" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-84" class="cb">
+                    <label for="c2-84" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-84" class="cb cb3">
+                    <label for="c1-84" class="layer lev1">❤︎</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-85" class="cb">
+                    <label for="c3-85" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-85" class="cb">
+                    <label for="c2-85" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-85" class="cb cb3">
+                    <label for="c1-85" class="layer lev1">❖</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-86" class="cb">
+                    <label for="c3-86" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-86" class="cb">
+                    <label for="c2-86" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-86" class="cb cb3">
+                    <label for="c1-86" class="layer lev1">❉</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-87" class="cb">
+                    <label for="c3-87" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-87" class="cb">
+                    <label for="c2-87" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-87" class="cb cb3">
+                    <label for="c1-87" class="layer lev1">☆</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-88" class="cb">
+                    <label for="c3-88" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-88" class="cb">
+                    <label for="c2-88" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-88" class="cb cb3">
+                    <label for="c1-88" class="layer lev1">✦</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-89" class="cb">
+                    <label for="c3-89" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-89" class="cb">
+                    <label for="c2-89" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-89" class="cb cb3">
+                    <label for="c1-89" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-90" class="cb">
+                    <label for="c3-90" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-90" class="cb">
+                    <label for="c2-90" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-90" class="cb cb3">
+                    <label for="c1-90" class="layer lev1">✥</label>
+
+                    <span class="letter">b</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-91" class="cb">
+                    <label for="c3-91" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-91" class="cb">
+                    <label for="c2-91" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-91" class="cb cb3">
+                    <label for="c1-91" class="layer lev1">❃</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-92" class="cb">
+                    <label for="c3-92" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-92" class="cb">
+                    <label for="c2-92" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-92" class="cb cb3">
+                    <label for="c1-92" class="layer lev1">❤︎</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-93" class="cb">
+                    <label for="c3-93" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-93" class="cb">
+                    <label for="c2-93" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-93" class="cb cb3">
+                    <label for="c1-93" class="layer lev1">❖</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-94" class="cb">
+                    <label for="c3-94" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-94" class="cb">
+                    <label for="c2-94" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-94" class="cb cb3">
+                    <label for="c1-94" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-95" class="cb">
+                    <label for="c3-95" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-95" class="cb">
+                    <label for="c2-95" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-95" class="cb cb3">
+                    <label for="c1-95" class="layer lev1">☆</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-96" class="cb">
+                    <label for="c3-96" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-96" class="cb">
+                    <label for="c2-96" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-96" class="cb cb3">
+                    <label for="c1-96" class="layer lev1">✦</label>
+
+                    <span class="letter">h</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-97" class="cb">
+                    <label for="c3-97" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-97" class="cb">
+                    <label for="c2-97" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-97" class="cb cb3">
+                    <label for="c1-97" class="layer lev1">✱</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-98" class="cb">
+                    <label for="c3-98" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-98" class="cb">
+                    <label for="c2-98" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-98" class="cb cb3">
+                    <label for="c1-98" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-99" class="cb">
+                    <label for="c3-99" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-99" class="cb">
+                    <label for="c2-99" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-99" class="cb cb3">
+                    <label for="c1-99" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-100" class="cb">
+                    <label for="c3-100" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-100" class="cb">
+                    <label for="c2-100" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-100" class="cb cb3">
+                    <label for="c1-100" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-101" class="cb">
+                    <label for="c3-101" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-101" class="cb">
+                    <label for="c2-101" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-101" class="cb cb3">
+                    <label for="c1-101" class="layer lev1">❖</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-102" class="cb">
+                    <label for="c3-102" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-102" class="cb">
+                    <label for="c2-102" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-102" class="cb cb3">
+                    <label for="c1-102" class="layer lev1">❉</label>
+
+                    <span class="letter">d</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-103" class="cb">
+                    <label for="c3-103" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-103" class="cb">
+                    <label for="c2-103" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-103" class="cb cb3">
+                    <label for="c1-103" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-104" class="cb">
+                    <label for="c3-104" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-104" class="cb">
+                    <label for="c2-104" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-104" class="cb cb3">
+                    <label for="c1-104" class="layer lev1">✦</label>
+
+                    <span class="letter">a</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-105" class="cb">
+                    <label for="c3-105" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-105" class="cb">
+                    <label for="c2-105" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-105" class="cb cb3">
+                    <label for="c1-105" class="layer lev1">✱</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-106" class="cb">
+                    <label for="c3-106" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-106" class="cb">
+                    <label for="c2-106" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-106" class="cb cb3">
+                    <label for="c1-106" class="layer lev1">✥</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-107" class="cb">
+                    <label for="c3-107" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-107" class="cb">
+                    <label for="c2-107" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-107" class="cb cb3">
+                    <label for="c1-107" class="layer lev1">❃</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-108" class="cb">
+                    <label for="c3-108" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-108" class="cb">
+                    <label for="c2-108" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-108" class="cb cb3">
+                    <label for="c1-108" class="layer lev1">❤︎</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-109" class="cb">
+                    <label for="c3-109" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-109" class="cb">
+                    <label for="c2-109" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-109" class="cb cb3">
+                    <label for="c1-109" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-110" class="cb">
+                    <label for="c3-110" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-110" class="cb">
+                    <label for="c2-110" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-110" class="cb cb3">
+                    <label for="c1-110" class="layer lev1">❉</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-111" class="cb">
+                    <label for="c3-111" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-111" class="cb">
+                    <label for="c2-111" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-111" class="cb cb3">
+                    <label for="c1-111" class="layer lev1">☆</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-112" class="cb">
+                    <label for="c3-112" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-112" class="cb">
+                    <label for="c2-112" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-112" class="cb cb3">
+                    <label for="c1-112" class="layer lev1">✦</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-113" class="cb">
+                    <label for="c3-113" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-113" class="cb">
+                    <label for="c2-113" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-113" class="cb cb3">
+                    <label for="c1-113" class="layer lev1">✱</label>
+
+                    <span class="letter">l</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-114" class="cb">
+                    <label for="c3-114" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-114" class="cb">
+                    <label for="c2-114" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-114" class="cb cb3">
+                    <label for="c1-114" class="layer lev1">✥</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-115" class="cb">
+                    <label for="c3-115" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-115" class="cb">
+                    <label for="c2-115" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-115" class="cb cb3">
+                    <label for="c1-115" class="layer lev1">❃</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-116" class="cb">
+                    <label for="c3-116" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-116" class="cb">
+                    <label for="c2-116" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-116" class="cb cb3">
+                    <label for="c1-116" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-117" class="cb">
+                    <label for="c3-117" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-117" class="cb">
+                    <label for="c2-117" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-117" class="cb cb3">
+                    <label for="c1-117" class="layer lev1">❖</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-118" class="cb">
+                    <label for="c3-118" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-118" class="cb">
+                    <label for="c2-118" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-118" class="cb cb3">
+                    <label for="c1-118" class="layer lev1">❉</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-119" class="cb">
+                    <label for="c3-119" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-119" class="cb">
+                    <label for="c2-119" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-119" class="cb cb3">
+                    <label for="c1-119" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-120" class="cb">
+                    <label for="c3-120" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-120" class="cb">
+                    <label for="c2-120" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-120" class="cb cb3">
+                    <label for="c1-120" class="layer lev1">✦</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-121" class="cb">
+                    <label for="c3-121" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-121" class="cb">
+                    <label for="c2-121" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-121" class="cb cb3">
+                    <label for="c1-121" class="layer lev1">✱</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-122" class="cb">
+                    <label for="c3-122" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-122" class="cb">
+                    <label for="c2-122" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-122" class="cb cb3">
+                    <label for="c1-122" class="layer lev1">✥</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+        </div>
+        <div class="line line-break"></div>
+        <!-- to peel my skin           moving faster -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-123" class="cb">
+                    <label for="c3-123" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-123" class="cb">
+                    <label for="c2-123" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-123" class="cb cb3">
+                    <label for="c1-123" class="layer lev1">❃</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-124" class="cb">
+                    <label for="c3-124" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-124" class="cb">
+                    <label for="c2-124" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-124" class="cb cb3">
+                    <label for="c1-124" class="layer lev1">❤︎</label>
+
+                    <span class="letter">o</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-125" class="cb">
+                    <label for="c3-125" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-125" class="cb">
+                    <label for="c2-125" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-125" class="cb cb3">
+                    <label for="c1-125" class="layer lev1">❖</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-126" class="cb">
+                    <label for="c3-126" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-126" class="cb">
+                    <label for="c2-126" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-126" class="cb cb3">
+                    <label for="c1-126" class="layer lev1">❉</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-127" class="cb">
+                    <label for="c3-127" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-127" class="cb">
+                    <label for="c2-127" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-127" class="cb cb3">
+                    <label for="c1-127" class="layer lev1">☆</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-128" class="cb">
+                    <label for="c3-128" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-128" class="cb">
+                    <label for="c2-128" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-128" class="cb cb3">
+                    <label for="c1-128" class="layer lev1">✦</label>
+
+                    <span class="letter">l</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-129" class="cb">
+                    <label for="c3-129" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-129" class="cb">
+                    <label for="c2-129" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-129" class="cb cb3">
+                    <label for="c1-129" class="layer lev1">✱</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-130" class="cb">
+                    <label for="c3-130" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-130" class="cb">
+                    <label for="c2-130" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-130" class="cb cb3">
+                    <label for="c1-130" class="layer lev1">✥</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-131" class="cb">
+                    <label for="c3-131" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-131" class="cb">
+                    <label for="c2-131" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-131" class="cb cb3">
+                    <label for="c1-131" class="layer lev1">❃</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-132" class="cb">
+                    <label for="c3-132" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-132" class="cb">
+                    <label for="c2-132" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-132" class="cb cb3">
+                    <label for="c1-132" class="layer lev1">❤︎</label>
+
+                    <span class="letter">k</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-133" class="cb">
+                    <label for="c3-133" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-133" class="cb">
+                    <label for="c2-133" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-133" class="cb cb3">
+                    <label for="c1-133" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-134" class="cb">
+                    <label for="c3-134" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-134" class="cb">
+                    <label for="c2-134" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-134" class="cb cb3">
+                    <label for="c1-134" class="layer lev1">❉</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-135" class="cb">
+                    <label for="c3-135" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-135" class="cb">
+                    <label for="c2-135" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-135" class="cb cb3">
+                    <label for="c1-135" class="layer lev1">☆</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-136" class="cb">
+                    <label for="c3-136" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-136" class="cb">
+                    <label for="c2-136" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-136" class="cb cb3">
+                    <label for="c1-136" class="layer lev1">✦</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-137" class="cb">
+                    <label for="c3-137" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-137" class="cb">
+                    <label for="c2-137" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-137" class="cb cb3">
+                    <label for="c1-137" class="layer lev1">✱</label>
+
+                    <span class="letter">v</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-138" class="cb">
+                    <label for="c3-138" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-138" class="cb">
+                    <label for="c2-138" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-138" class="cb cb3">
+                    <label for="c1-138" class="layer lev1">✥</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-139" class="cb">
+                    <label for="c3-139" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-139" class="cb">
+                    <label for="c2-139" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-139" class="cb cb3">
+                    <label for="c1-139" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-140" class="cb">
+                    <label for="c3-140" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-140" class="cb">
+                    <label for="c2-140" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-140" class="cb cb3">
+                    <label for="c1-140" class="layer lev1">❤︎</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-141" class="cb">
+                    <label for="c3-141" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-141" class="cb">
+                    <label for="c2-141" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-141" class="cb cb3">
+                    <label for="c1-141" class="layer lev1">❖</label>
+
+                    <span class="letter">f</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-142" class="cb">
+                    <label for="c3-142" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-142" class="cb">
+                    <label for="c2-142" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-142" class="cb cb3">
+                    <label for="c1-142" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-143" class="cb">
+                    <label for="c3-143" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-143" class="cb">
+                    <label for="c2-143" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-143" class="cb cb3">
+                    <label for="c1-143" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-144" class="cb">
+                    <label for="c3-144" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-144" class="cb">
+                    <label for="c2-144" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-144" class="cb cb3">
+                    <label for="c1-144" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-145" class="cb">
+                    <label for="c3-145" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-145" class="cb">
+                    <label for="c2-145" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-145" class="cb cb3">
+                    <label for="c1-145" class="layer lev1">✱</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-146" class="cb">
+                    <label for="c3-146" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-146" class="cb">
+                    <label for="c2-146" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-146" class="cb cb3">
+                    <label for="c1-146" class="layer lev1">✥</label>
+
+                    <span class="letter">r</span>
+                </span>
+            </span>
+        </div>
+        <!-- crawling into myself	rapturous and anxious -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-147" class="cb">
+                    <label for="c3-147" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-147" class="cb">
+                    <label for="c2-147" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-147" class="cb cb3">
+                    <label for="c1-147" class="layer lev1">❃</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-148" class="cb">
+                    <label for="c3-148" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-148" class="cb">
+                    <label for="c2-148" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-148" class="cb cb3">
+                    <label for="c1-148" class="layer lev1">❤︎</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-149" class="cb">
+                    <label for="c3-149" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-149" class="cb">
+                    <label for="c2-149" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-149" class="cb cb3">
+                    <label for="c1-149" class="layer lev1">❖</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-150" class="cb">
+                    <label for="c3-150" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-150" class="cb">
+                    <label for="c2-150" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-150" class="cb cb3">
+                    <label for="c1-150" class="layer lev1">❉</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-151" class="cb">
+                    <label for="c3-151" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-151" class="cb">
+                    <label for="c2-151" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-151" class="cb cb3">
+                    <label for="c1-151" class="layer lev1">☆</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-152" class="cb">
+                    <label for="c3-152" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-152" class="cb">
+                    <label for="c2-152" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-152" class="cb cb3">
+                    <label for="c1-152" class="layer lev1">✦</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-153" class="cb">
+                    <label for="c3-153" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-153" class="cb">
+                    <label for="c2-153" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-153" class="cb cb3">
+                    <label for="c1-153" class="layer lev1">✱</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-154" class="cb">
+                    <label for="c3-154" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-154" class="cb">
+                    <label for="c2-154" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-154" class="cb cb3">
+                    <label for="c1-154" class="layer lev1">✥</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-155" class="cb">
+                    <label for="c3-155" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-155" class="cb">
+                    <label for="c2-155" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-155" class="cb cb3">
+                    <label for="c1-155" class="layer lev1">❃</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-156" class="cb">
+                    <label for="c3-156" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-156" class="cb">
+                    <label for="c2-156" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-156" class="cb cb3">
+                    <label for="c1-156" class="layer lev1">❤︎</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-157" class="cb">
+                    <label for="c3-157" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-157" class="cb">
+                    <label for="c2-157" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-157" class="cb cb3">
+                    <label for="c1-157" class="layer lev1">❖</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-158" class="cb">
+                    <label for="c3-158" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-158" class="cb">
+                    <label for="c2-158" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-158" class="cb cb3">
+                    <label for="c1-158" class="layer lev1">❉</label>
+
+                    <span class="letter">o</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-159" class="cb">
+                    <label for="c3-159" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-159" class="cb">
+                    <label for="c2-159" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-159" class="cb cb3">
+                    <label for="c1-159" class="layer lev1">☆</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-160" class="cb">
+                    <label for="c3-160" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-160" class="cb">
+                    <label for="c2-160" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-160" class="cb cb3">
+                    <label for="c1-160" class="layer lev1">✦</label>
+
+                    <span class="letter">y</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-161" class="cb">
+                    <label for="c3-161" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-161" class="cb">
+                    <label for="c2-161" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-161" class="cb cb3">
+                    <label for="c1-161" class="layer lev1">✱</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-162" class="cb">
+                    <label for="c3-162" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-162" class="cb">
+                    <label for="c2-162" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-162" class="cb cb3">
+                    <label for="c1-162" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-163" class="cb">
+                    <label for="c3-163" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-163" class="cb">
+                    <label for="c2-163" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-163" class="cb cb3">
+                    <label for="c1-163" class="layer lev1">❃</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-164" class="cb">
+                    <label for="c3-164" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-164" class="cb">
+                    <label for="c2-164" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-164" class="cb cb3">
+                    <label for="c1-164" class="layer lev1">❤︎</label>
+
+                    <span class="letter">f</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-165" class="cb">
+                    <label for="c3-165" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-165" class="cb">
+                    <label for="c2-165" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-165" class="cb cb3">
+                    <label for="c1-165" class="layer lev1">❖</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-166" class="cb">
+                    <label for="c3-166" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-166" class="cb">
+                    <label for="c2-166" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-166" class="cb cb3">
+                    <label for="c1-166" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-167" class="cb">
+                    <label for="c3-167" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-167" class="cb">
+                    <label for="c2-167" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-167" class="cb cb3">
+                    <label for="c1-167" class="layer lev1">☆</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-168" class="cb">
+                    <label for="c3-168" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-168" class="cb">
+                    <label for="c2-168" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-168" class="cb cb3">
+                    <label for="c1-168" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-169" class="cb">
+                    <label for="c3-169" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-169" class="cb">
+                    <label for="c2-169" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-169" class="cb cb3">
+                    <label for="c1-169" class="layer lev1">✱</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-170" class="cb">
+                    <label for="c3-170" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-170" class="cb">
+                    <label for="c2-170" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-170" class="cb cb3">
+                    <label for="c1-170" class="layer lev1">✥</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-171" class="cb">
+                    <label for="c3-171" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-171" class="cb">
+                    <label for="c2-171" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-171" class="cb cb3">
+                    <label for="c1-171" class="layer lev1">❃</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-172" class="cb">
+                    <label for="c3-172" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-172" class="cb">
+                    <label for="c2-172" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-172" class="cb cb3">
+                    <label for="c1-172" class="layer lev1">❤︎</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-173" class="cb">
+                    <label for="c3-173" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-173" class="cb">
+                    <label for="c2-173" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-173" class="cb cb3">
+                    <label for="c1-173" class="layer lev1">❖</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-174" class="cb">
+                    <label for="c3-174" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-174" class="cb">
+                    <label for="c2-174" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-174" class="cb cb3">
+                    <label for="c1-174" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-175" class="cb">
+                    <label for="c3-175" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-175" class="cb">
+                    <label for="c2-175" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-175" class="cb cb3">
+                    <label for="c1-175" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-176" class="cb">
+                    <label for="c3-176" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-176" class="cb">
+                    <label for="c2-176" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-176" class="cb cb3">
+                    <label for="c1-176" class="layer lev1">✦</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-177" class="cb">
+                    <label for="c3-177" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-177" class="cb">
+                    <label for="c2-177" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-177" class="cb cb3">
+                    <label for="c1-177" class="layer lev1">✱</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-178" class="cb">
+                    <label for="c3-178" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-178" class="cb">
+                    <label for="c2-178" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-178" class="cb cb3">
+                    <label for="c1-178" class="layer lev1">✥</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-179" class="cb">
+                    <label for="c3-179" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-179" class="cb">
+                    <label for="c2-179" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-179" class="cb cb3">
+                    <label for="c1-179" class="layer lev1">❃</label>
+
+                    <span class="letter">x</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-180" class="cb">
+                    <label for="c3-180" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-180" class="cb">
+                    <label for="c2-180" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-180" class="cb cb3">
+                    <label for="c1-180" class="layer lev1">❤︎</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-181" class="cb">
+                    <label for="c3-181" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-181" class="cb">
+                    <label for="c2-181" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-181" class="cb cb3">
+                    <label for="c1-181" class="layer lev1">❖</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-182" class="cb">
+                    <label for="c3-182" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-182" class="cb">
+                    <label for="c2-182" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-182" class="cb cb3">
+                    <label for="c1-182" class="layer lev1">❉</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-183" class="cb">
+                    <label for="c3-183" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-183" class="cb">
+                    <label for="c2-183" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-183" class="cb cb3">
+                    <label for="c1-183" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+        </div>
+        <!-- becoming a version i always  -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-184" class="cb">
+                    <label for="c3-184" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-184" class="cb">
+                    <label for="c2-184" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-184" class="cb cb3">
+                    <label for="c1-184" class="layer lev1">✦</label>
+
+                    <span class="letter">b</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-185" class="cb">
+                    <label for="c3-185" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-185" class="cb">
+                    <label for="c2-185" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-185" class="cb cb3">
+                    <label for="c1-185" class="layer lev1">✱</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-186" class="cb">
+                    <label for="c3-186" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-186" class="cb">
+                    <label for="c2-186" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-186" class="cb cb3">
+                    <label for="c1-186" class="layer lev1">✥</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-187" class="cb">
+                    <label for="c3-187" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-187" class="cb">
+                    <label for="c2-187" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-187" class="cb cb3">
+                    <label for="c1-187" class="layer lev1">❃</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-188" class="cb">
+                    <label for="c3-188" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-188" class="cb">
+                    <label for="c2-188" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-188" class="cb cb3">
+                    <label for="c1-188" class="layer lev1">❤︎</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-189" class="cb">
+                    <label for="c3-189" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-189" class="cb">
+                    <label for="c2-189" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-189" class="cb cb3">
+                    <label for="c1-189" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-190" class="cb">
+                    <label for="c3-190" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-190" class="cb">
+                    <label for="c2-190" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-190" class="cb cb3">
+                    <label for="c1-190" class="layer lev1">❉</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-191" class="cb">
+                    <label for="c3-191" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-191" class="cb">
+                    <label for="c2-191" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-191" class="cb cb3">
+                    <label for="c1-191" class="layer lev1">☆</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-192" class="cb">
+                    <label for="c3-192" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-192" class="cb">
+                    <label for="c2-192" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-192" class="cb cb3">
+                    <label for="c1-192" class="layer lev1">✦</label>
+
+                    <span class="letter">a</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-193" class="cb">
+                    <label for="c3-193" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-193" class="cb">
+                    <label for="c2-193" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-193" class="cb cb3">
+                    <label for="c1-193" class="layer lev1">✱</label>
+
+                    <span class="letter">v</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-194" class="cb">
+                    <label for="c3-194" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-194" class="cb">
+                    <label for="c2-194" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-194" class="cb cb3">
+                    <label for="c1-194" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-195" class="cb">
+                    <label for="c3-195" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-195" class="cb">
+                    <label for="c2-195" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-195" class="cb cb3">
+                    <label for="c1-195" class="layer lev1">❃</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-196" class="cb">
+                    <label for="c3-196" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-196" class="cb">
+                    <label for="c2-196" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-196" class="cb cb3">
+                    <label for="c1-196" class="layer lev1">❤︎</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-197" class="cb">
+                    <label for="c3-197" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-197" class="cb">
+                    <label for="c2-197" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-197" class="cb cb3">
+                    <label for="c1-197" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-198" class="cb">
+                    <label for="c3-198" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-198" class="cb">
+                    <label for="c2-198" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-198" class="cb cb3">
+                    <label for="c1-198" class="layer lev1">❉</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-199" class="cb">
+                    <label for="c3-199" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-199" class="cb">
+                    <label for="c2-199" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-199" class="cb cb3">
+                    <label for="c1-199" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-200" class="cb">
+                    <label for="c3-200" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-200" class="cb">
+                    <label for="c2-200" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-200" class="cb cb3">
+                    <label for="c1-200" class="layer lev1">✦</label>
+
+                    <span class="letter">i</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-201" class="cb">
+                    <label for="c3-201" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-201" class="cb">
+                    <label for="c2-201" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-201" class="cb cb3">
+                    <label for="c1-201" class="layer lev1">✱</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-202" class="cb">
+                    <label for="c3-202" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-202" class="cb">
+                    <label for="c2-202" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-202" class="cb cb3">
+                    <label for="c1-202" class="layer lev1">✥</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-203" class="cb">
+                    <label for="c3-203" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-203" class="cb">
+                    <label for="c2-203" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-203" class="cb cb3">
+                    <label for="c1-203" class="layer lev1">❃</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-204" class="cb">
+                    <label for="c3-204" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-204" class="cb">
+                    <label for="c2-204" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-204" class="cb cb3">
+                    <label for="c1-204" class="layer lev1">❤︎</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-205" class="cb">
+                    <label for="c3-205" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-205" class="cb">
+                    <label for="c2-205" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-205" class="cb cb3">
+                    <label for="c1-205" class="layer lev1">❖</label>
+
+                    <span class="letter">y</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-206" class="cb">
+                    <label for="c3-206" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-206" class="cb">
+                    <label for="c2-206" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-206" class="cb cb3">
+                    <label for="c1-206" class="layer lev1">❉</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+           </div>
+           <!--should have, could have, would have been//-->
+            <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-207" class="cb">
+                    <label for="c3-207" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-207" class="cb">
+                    <label for="c2-207" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-207" class="cb cb3">
+                    <label for="c1-207" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-208" class="cb">
+                    <label for="c3-208" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-208" class="cb">
+                    <label for="c2-208" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-208" class="cb cb3">
+                    <label for="c1-208" class="layer lev1">✦</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-209" class="cb">
+                    <label for="c3-209" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-209" class="cb">
+                    <label for="c2-209" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-209" class="cb cb3">
+                    <label for="c1-209" class="layer lev1">✱</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-210" class="cb">
+                    <label for="c3-210" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-210" class="cb">
+                    <label for="c2-210" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-210" class="cb cb3">
+                    <label for="c1-210" class="layer lev1">✥</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-211" class="cb">
+                    <label for="c3-211" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-211" class="cb">
+                    <label for="c2-211" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-211" class="cb cb3">
+                    <label for="c1-211" class="layer lev1">❃</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-212" class="cb">
+                    <label for="c3-212" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-212" class="cb">
+                    <label for="c2-212" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-212" class="cb cb3">
+                    <label for="c1-212" class="layer lev1">❤︎</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-213" class="cb">
+                    <label for="c3-213" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-213" class="cb">
+                    <label for="c2-213" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-213" class="cb cb3">
+                    <label for="c1-213" class="layer lev1">❖</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-214" class="cb">
+                    <label for="c3-214" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-214" class="cb">
+                    <label for="c2-214" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-214" class="cb cb3">
+                    <label for="c1-214" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-215" class="cb">
+                    <label for="c3-215" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-215" class="cb">
+                    <label for="c2-215" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-215" class="cb cb3">
+                    <label for="c1-215" class="layer lev1">☆</label>
+
+                    <span class="letter">v</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-216" class="cb">
+                    <label for="c3-216" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-216" class="cb">
+                    <label for="c2-216" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-216" class="cb cb3">
+                    <label for="c1-216" class="layer lev1">✦</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-217" class="cb">
+                    <label for="c3-217" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-217" class="cb">
+                    <label for="c2-217" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-217" class="cb cb3">
+                    <label for="c1-217" class="layer lev1">✱</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-218" class="cb">
+                    <label for="c3-218" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-218" class="cb">
+                    <label for="c2-218" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-218" class="cb cb3">
+                    <label for="c1-218" class="layer lev1">✥</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-219" class="cb">
+                    <label for="c3-219" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-219" class="cb">
+                    <label for="c2-219" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-219" class="cb cb3">
+                    <label for="c1-219" class="layer lev1">❃</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-220" class="cb">
+                    <label for="c3-220" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-220" class="cb">
+                    <label for="c2-220" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-220" class="cb cb3">
+                    <label for="c1-220" class="layer lev1">❤︎</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-221" class="cb">
+                    <label for="c3-221" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-221" class="cb">
+                    <label for="c2-221" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-221" class="cb cb3">
+                    <label for="c1-221" class="layer lev1">❖</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-222" class="cb">
+                    <label for="c3-222" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-222" class="cb">
+                    <label for="c2-222" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-222" class="cb cb3">
+                    <label for="c1-222" class="layer lev1">❉</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-223" class="cb">
+                    <label for="c3-223" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-223" class="cb">
+                    <label for="c2-223" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-223" class="cb cb3">
+                    <label for="c1-223" class="layer lev1">☆</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-224" class="cb">
+                    <label for="c3-224" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-224" class="cb">
+                    <label for="c2-224" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-224" class="cb cb3">
+                    <label for="c1-224" class="layer lev1">✦</label>
+
+                    <span class="letter">v</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-225" class="cb">
+                    <label for="c3-225" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-225" class="cb">
+                    <label for="c2-225" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-225" class="cb cb3">
+                    <label for="c1-225" class="layer lev1">✱</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-226" class="cb">
+                    <label for="c3-226" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-226" class="cb">
+                    <label for="c2-226" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-226" class="cb cb3">
+                    <label for="c1-226" class="layer lev1">✥</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-227" class="cb">
+                    <label for="c3-227" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-227" class="cb">
+                    <label for="c2-227" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-227" class="cb cb3">
+                    <label for="c1-227" class="layer lev1">❃</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-228" class="cb">
+                    <label for="c3-228" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-228" class="cb">
+                    <label for="c2-228" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-228" class="cb cb3">
+                    <label for="c1-228" class="layer lev1">❤︎</label>
+
+                    <span class="letter">u</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-229" class="cb">
+                    <label for="c3-229" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-229" class="cb">
+                    <label for="c2-229" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-229" class="cb cb3">
+                    <label for="c1-229" class="layer lev1">❖</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-230" class="cb">
+                    <label for="c3-230" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-230" class="cb">
+                    <label for="c2-230" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-230" class="cb cb3">
+                    <label for="c1-230" class="layer lev1">❉</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-231" class="cb">
+                    <label for="c3-231" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-231" class="cb">
+                    <label for="c2-231" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-231" class="cb cb3">
+                    <label for="c1-231" class="layer lev1">☆</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-232" class="cb">
+                    <label for="c3-232" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-232" class="cb">
+                    <label for="c2-232" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-232" class="cb cb3">
+                    <label for="c1-232" class="layer lev1">✦</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-233" class="cb">
+                    <label for="c3-233" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-233" class="cb">
+                    <label for="c2-233" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-233" class="cb cb3">
+                    <label for="c1-233" class="layer lev1">✱</label>
+
+                    <span class="letter">v</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-234" class="cb">
+                    <label for="c3-234" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-234" class="cb">
+                    <label for="c2-234" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-234" class="cb cb3">
+                    <label for="c1-234" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-235" class="cb">
+                    <label for="c3-235" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-235" class="cb">
+                    <label for="c2-235" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-235" class="cb cb3">
+                    <label for="c1-235" class="layer lev1">❃</label>
+
+                    <span class="letter">b</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-236" class="cb">
+                    <label for="c3-236" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-236" class="cb">
+                    <label for="c2-236" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-236" class="cb cb3">
+                    <label for="c1-236" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-237" class="cb">
+                    <label for="c3-237" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-237" class="cb">
+                    <label for="c2-237" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-237" class="cb cb3">
+                    <label for="c1-237" class="layer lev1">❖</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-238" class="cb">
+                    <label for="c3-238" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-238" class="cb">
+                    <label for="c2-238" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-238" class="cb cb3">
+                    <label for="c1-238" class="layer lev1">❉</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+        </div>
+        <div class="line line-break"></div>
+        <!--h2o pooling at my feet           fe depositing in organic cotton//-->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-239" class="cb">
+                    <label for="c3-239" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-239" class="cb">
+                    <label for="c2-239" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-239" class="cb cb3">
+                    <label for="c1-239" class="layer lev1">☆</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-240" class="cb">
+                    <label for="c3-240" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-240" class="cb">
+                    <label for="c2-240" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-240" class="cb cb3">
+                    <label for="c1-240" class="layer lev1">✦</label>
+
+                    <span class="letter">2</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-241" class="cb">
+                    <label for="c3-241" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-241" class="cb">
+                    <label for="c2-241" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-241" class="cb cb3">
+                    <label for="c1-241" class="layer lev1">✱</label>
+
+                    <span class="letter">o</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-242" class="cb">
+                    <label for="c3-242" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-242" class="cb">
+                    <label for="c2-242" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-242" class="cb cb3">
+                    <label for="c1-242" class="layer lev1">✥</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-243" class="cb">
+                    <label for="c3-243" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-243" class="cb">
+                    <label for="c2-243" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-243" class="cb cb3">
+                    <label for="c1-243" class="layer lev1">❃</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-244" class="cb">
+                    <label for="c3-244" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-244" class="cb">
+                    <label for="c2-244" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-244" class="cb cb3">
+                    <label for="c1-244" class="layer lev1">❤︎</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-245" class="cb">
+                    <label for="c3-245" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-245" class="cb">
+                    <label for="c2-245" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-245" class="cb cb3">
+                    <label for="c1-245" class="layer lev1">❖</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-246" class="cb">
+                    <label for="c3-246" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-246" class="cb">
+                    <label for="c2-246" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-246" class="cb cb3">
+                    <label for="c1-246" class="layer lev1">❉</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-247" class="cb">
+                    <label for="c3-247" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-247" class="cb">
+                    <label for="c2-247" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-247" class="cb cb3">
+                    <label for="c1-247" class="layer lev1">☆</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-248" class="cb">
+                    <label for="c3-248" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-248" class="cb">
+                    <label for="c2-248" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-248" class="cb cb3">
+                    <label for="c1-248" class="layer lev1">✦</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-249" class="cb">
+                    <label for="c3-249" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-249" class="cb">
+                    <label for="c2-249" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-249" class="cb cb3">
+                    <label for="c1-249" class="layer lev1">✱</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-250" class="cb">
+                    <label for="c3-250" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-250" class="cb">
+                    <label for="c2-250" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-250" class="cb cb3">
+                    <label for="c1-250" class="layer lev1">✥</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-251" class="cb">
+                    <label for="c3-251" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-251" class="cb">
+                    <label for="c2-251" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-251" class="cb cb3">
+                    <label for="c1-251" class="layer lev1">❃</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-252" class="cb">
+                    <label for="c3-252" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-252" class="cb">
+                    <label for="c2-252" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-252" class="cb cb3">
+                    <label for="c1-252" class="layer lev1">❤︎</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-253" class="cb">
+                    <label for="c3-253" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-253" class="cb">
+                    <label for="c2-253" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-253" class="cb cb3">
+                    <label for="c1-253" class="layer lev1">❖</label>
+
+                    <span class="letter">f</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-254" class="cb">
+                    <label for="c3-254" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-254" class="cb">
+                    <label for="c2-254" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-254" class="cb cb3">
+                    <label for="c1-254" class="layer lev1">❉</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-255" class="cb">
+                    <label for="c3-255" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-255" class="cb">
+                    <label for="c2-255" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-255" class="cb cb3">
+                    <label for="c1-255" class="layer lev1">☆</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-256" class="cb">
+                    <label for="c3-256" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-256" class="cb">
+                    <label for="c2-256" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-256" class="cb cb3">
+                    <label for="c1-256" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-257" class="cb">
+                    <label for="c3-257" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-257" class="cb">
+                    <label for="c2-257" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-257" class="cb cb3">
+                    <label for="c1-257" class="layer lev1">✱</label>
+
+                    <span class="letter">f</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-258" class="cb">
+                    <label for="c3-258" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-258" class="cb">
+                    <label for="c2-258" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-258" class="cb cb3">
+                    <label for="c1-258" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-259" class="cb">
+                    <label for="c3-259" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-259" class="cb">
+                    <label for="c2-259" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-259" class="cb cb3">
+                    <label for="c1-259" class="layer lev1">❃</label>
+
+                    <span class="letter">d</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-260" class="cb">
+                    <label for="c3-260" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-260" class="cb">
+                    <label for="c2-260" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-260" class="cb cb3">
+                    <label for="c1-260" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-261" class="cb">
+                    <label for="c3-261" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-261" class="cb">
+                    <label for="c2-261" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-261" class="cb cb3">
+                    <label for="c1-261" class="layer lev1">❖</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-262" class="cb">
+                    <label for="c3-262" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-262" class="cb">
+                    <label for="c2-262" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-262" class="cb cb3">
+                    <label for="c1-262" class="layer lev1">❉</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-263" class="cb">
+                    <label for="c3-263" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-263" class="cb">
+                    <label for="c2-263" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-263" class="cb cb3">
+                    <label for="c1-263" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-264" class="cb">
+                    <label for="c3-264" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-264" class="cb">
+                    <label for="c2-264" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-264" class="cb cb3">
+                    <label for="c1-264" class="layer lev1">✦</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-265" class="cb">
+                    <label for="c3-265" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-265" class="cb">
+                    <label for="c2-265" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-265" class="cb cb3">
+                    <label for="c1-265" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-266" class="cb">
+                    <label for="c3-266" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-266" class="cb">
+                    <label for="c2-266" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-266" class="cb cb3">
+                    <label for="c1-266" class="layer lev1">✥</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-267" class="cb">
+                    <label for="c3-267" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-267" class="cb">
+                    <label for="c2-267" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-267" class="cb cb3">
+                    <label for="c1-267" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-268" class="cb">
+                    <label for="c3-268" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-268" class="cb">
+                    <label for="c2-268" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-268" class="cb cb3">
+                    <label for="c1-268" class="layer lev1">❤︎</label>
+
+                    <span class="letter">g</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-269" class="cb">
+                    <label for="c3-269" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-269" class="cb">
+                    <label for="c2-269" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-269" class="cb cb3">
+                    <label for="c1-269" class="layer lev1">❖</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-270" class="cb">
+                    <label for="c3-270" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-270" class="cb">
+                    <label for="c2-270" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-270" class="cb cb3">
+                    <label for="c1-270" class="layer lev1">❉</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-271" class="cb">
+                    <label for="c3-271" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-271" class="cb">
+                    <label for="c2-271" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-271" class="cb cb3">
+                    <label for="c1-271" class="layer lev1">☆</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-272" class="cb">
+                    <label for="c3-272" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-272" class="cb">
+                    <label for="c2-272" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-272" class="cb cb3">
+                    <label for="c1-272" class="layer lev1">✦</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-273" class="cb">
+                    <label for="c3-273" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-273" class="cb">
+                    <label for="c2-273" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-273" class="cb cb3">
+                    <label for="c1-273" class="layer lev1">✱</label>
+
+                    <span class="letter">g</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-274" class="cb">
+                    <label for="c3-274" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-274" class="cb">
+                    <label for="c2-274" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-274" class="cb cb3">
+                    <label for="c1-274" class="layer lev1">✥</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-275" class="cb">
+                    <label for="c3-275" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-275" class="cb">
+                    <label for="c2-275" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-275" class="cb cb3">
+                    <label for="c1-275" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-276" class="cb">
+                    <label for="c3-276" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-276" class="cb">
+                    <label for="c2-276" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-276" class="cb cb3">
+                    <label for="c1-276" class="layer lev1">❤︎</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-277" class="cb">
+                    <label for="c3-277" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-277" class="cb">
+                    <label for="c2-277" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-277" class="cb cb3">
+                    <label for="c1-277" class="layer lev1">❖</label>
+
+                    <span class="letter">c</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-278" class="cb">
+                    <label for="c3-278" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-278" class="cb">
+                    <label for="c2-278" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-278" class="cb cb3">
+                    <label for="c1-278" class="layer lev1">❉</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-279" class="cb">
+                    <label for="c3-279" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-279" class="cb">
+                    <label for="c2-279" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-279" class="cb cb3">
+                    <label for="c1-279" class="layer lev1">☆</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-280" class="cb">
+                    <label for="c3-280" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-280" class="cb">
+                    <label for="c2-280" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-280" class="cb cb3">
+                    <label for="c1-280" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-281" class="cb">
+                    <label for="c3-281" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-281" class="cb">
+                    <label for="c2-281" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-281" class="cb cb3">
+                    <label for="c1-281" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-282" class="cb">
+                    <label for="c3-282" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-282" class="cb">
+                    <label for="c2-282" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-282" class="cb cb3">
+                    <label for="c1-282" class="layer lev1">✥</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-283" class="cb">
+                    <label for="c3-283" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-283" class="cb">
+                    <label for="c2-283" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-283" class="cb cb3">
+                    <label for="c1-283" class="layer lev1">❃</label>
+
+                    <span class="letter">n</span>
+                </span>
+            </span>
+        </div>
+        <!-- the bed is warm           where my sweetheart once slept -->
+        <div class="line">
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-284" class="cb">
+                    <label for="c3-284" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-284" class="cb">
+                    <label for="c2-284" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-284" class="cb cb3">
+                    <label for="c1-284" class="layer lev1">❤︎</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-285" class="cb">
+                    <label for="c3-285" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-285" class="cb">
+                    <label for="c2-285" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-285" class="cb cb3">
+                    <label for="c1-285" class="layer lev1">❖</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-286" class="cb">
+                    <label for="c3-286" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-286" class="cb">
+                    <label for="c2-286" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-286" class="cb cb3">
+                    <label for="c1-286" class="layer lev1">❉</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-287" class="cb">
+                    <label for="c3-287" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-287" class="cb">
+                    <label for="c2-287" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-287" class="cb cb3">
+                    <label for="c1-287" class="layer lev1">☆</label>
+
+                    <span class="letter">b</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-288" class="cb">
+                    <label for="c3-288" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-288" class="cb">
+                    <label for="c2-288" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-288" class="cb cb3">
+                    <label for="c1-288" class="layer lev1">✦</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-289" class="cb">
+                    <label for="c3-289" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-289" class="cb">
+                    <label for="c2-289" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-289" class="cb cb3">
+                    <label for="c1-289" class="layer lev1">✱</label>
+
+                    <span class="letter">d</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-290" class="cb">
+                    <label for="c3-290" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-290" class="cb">
+                    <label for="c2-290" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-290" class="cb cb3">
+                    <label for="c1-290" class="layer lev1">✥</label>
+
+                    <span class="letter">i</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-291" class="cb">
+                    <label for="c3-291" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-291" class="cb">
+                    <label for="c2-291" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-291" class="cb cb3">
+                    <label for="c1-291" class="layer lev1">❃</label>
+
+                    <span class="letter">s</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-292" class="cb">
+                    <label for="c3-292" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-292" class="cb">
+                    <label for="c2-292" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-292" class="cb cb3">
+                    <label for="c1-292" class="layer lev1">❤︎</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-293" class="cb">
+                    <label for="c3-293" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-293" class="cb">
+                    <label for="c2-293" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-293" class="cb cb3">
+                    <label for="c1-293" class="layer lev1">❖</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-294" class="cb">
+                    <label for="c3-294" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-294" class="cb">
+                    <label for="c2-294" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-294" class="cb cb3">
+                    <label for="c1-294" class="layer lev1">❉</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-295" class="cb">
+                    <label for="c3-295" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-295" class="cb">
+                    <label for="c2-295" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-295" class="cb cb3">
+                    <label for="c1-295" class="layer lev1">☆</label>
+
+                    <span class="letter">m</span>
+                </span>
+            </span>
+            <span class="gap-long"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-296" class="cb">
+                    <label for="c3-296" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-296" class="cb">
+                    <label for="c2-296" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-296" class="cb cb3">
+                    <label for="c1-296" class="layer lev1">✦</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-297" class="cb">
+                    <label for="c3-297" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-297" class="cb">
+                    <label for="c2-297" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-297" class="cb cb3">
+                    <label for="c1-297" class="layer lev1">✱</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-298" class="cb">
+                    <label for="c3-298" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-298" class="cb">
+                    <label for="c2-298" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-298" class="cb cb3">
+                    <label for="c1-298" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-299" class="cb">
+                    <label for="c3-299" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-299" class="cb">
+                    <label for="c2-299" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-299" class="cb cb3">
+                    <label for="c1-299" class="layer lev1">❃</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-300" class="cb">
+                    <label for="c3-300" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-300" class="cb">
+                    <label for="c2-300" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-300" class="cb cb3">
+                    <label for="c1-300" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-301" class="cb">
+                    <label for="c3-301" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-301" class="cb">
+                    <label for="c2-301" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-301" class="cb cb3">
+                    <label for="c1-301" class="layer lev1">❖</label>
+
+                    <span class="letter">m</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-302" class="cb">
+                    <label for="c3-302" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-302" class="cb">
+                    <label for="c2-302" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-302" class="cb cb3">
+                    <label for="c1-302" class="layer lev1">❉</label>
+
+                    <span class="letter">y</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-303" class="cb">
+                    <label for="c3-303" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-303" class="cb">
+                    <label for="c2-303" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-303" class="cb cb3">
+                    <label for="c1-303" class="layer lev1">☆</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-304" class="cb">
+                    <label for="c3-304" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-304" class="cb">
+                    <label for="c2-304" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-304" class="cb cb3">
+                    <label for="c1-304" class="layer lev1">✦</label>
+
+                    <span class="letter">w</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-305" class="cb">
+                    <label for="c3-305" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-305" class="cb">
+                    <label for="c2-305" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-305" class="cb cb3">
+                    <label for="c1-305" class="layer lev1">✱</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-306" class="cb">
+                    <label for="c3-306" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-306" class="cb">
+                    <label for="c2-306" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-306" class="cb cb3">
+                    <label for="c1-306" class="layer lev1">✥</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-307" class="cb">
+                    <label for="c3-307" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-307" class="cb">
+                    <label for="c2-307" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-307" class="cb cb3">
+                    <label for="c1-307" class="layer lev1">❃</label>
+
+                    <span class="letter">t</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-308" class="cb">
+                    <label for="c3-308" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-308" class="cb">
+                    <label for="c2-308" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-308" class="cb cb3">
+                    <label for="c1-308" class="layer lev1">❤︎</label>
+
+                    <span class="letter">h</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-309" class="cb">
+                    <label for="c3-309" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-309" class="cb">
+                    <label for="c2-309" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-309" class="cb cb3">
+                    <label for="c1-309" class="layer lev1">❖</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-310" class="cb">
+                    <label for="c3-310" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-310" class="cb">
+                    <label for="c2-310" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-310" class="cb cb3">
+                    <label for="c1-310" class="layer lev1">❉</label>
+
+                    <span class="letter">a</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-311" class="cb">
+                    <label for="c3-311" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-311" class="cb">
+                    <label for="c2-311" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-311" class="cb cb3">
+                    <label for="c1-311" class="layer lev1">☆</label>
+
+                    <span class="letter">r</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-312" class="cb">
+                    <label for="c3-312" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-312" class="cb">
+                    <label for="c2-312" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-312" class="cb cb3">
+                    <label for="c1-312" class="layer lev1">✦</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-313" class="cb">
+                    <label for="c3-313" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-313" class="cb">
+                    <label for="c2-313" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-313" class="cb cb3">
+                    <label for="c1-313" class="layer lev1">✱</label>
+
+                    <span class="letter">o</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-314" class="cb">
+                    <label for="c3-314" class="layer lev3">✶</label>
+
+                    <input type="checkbox" id="c2-314" class="cb">
+                    <label for="c2-314" class="layer lev2">★</label>
+
+                    <input type="checkbox" id="c1-314" class="cb cb3">
+                    <label for="c1-314" class="layer lev1">✥</label>
+
+                    <span class="letter">n</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-315" class="cb">
+                    <label for="c3-315" class="layer lev3">❖</label>
+
+                    <input type="checkbox" id="c2-315" class="cb">
+                    <label for="c2-315" class="layer lev2">☆</label>
+
+                    <input type="checkbox" id="c1-315" class="cb cb3">
+                    <label for="c1-315" class="layer lev1">❃</label>
+
+                    <span class="letter">c</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-316" class="cb">
+                    <label for="c3-316" class="layer lev3">✯</label>
+
+                    <input type="checkbox" id="c2-316" class="cb">
+                    <label for="c2-316" class="layer lev2">❊</label>
+
+                    <input type="checkbox" id="c1-316" class="cb cb3">
+                    <label for="c1-316" class="layer lev1">❤︎</label>
+
+                    <span class="letter">e</span>
+                </span>
+            </span>
+            <span class="gap-normal"></span>
+            <span class="word">
+                <span class="character">
+                    <input type="checkbox" id="c3-317" class="cb">
+                    <label for="c3-317" class="layer lev3">✹</label>
+
+                    <input type="checkbox" id="c2-317" class="cb">
+                    <label for="c2-317" class="layer lev2">❀</label>
+
+                    <input type="checkbox" id="c1-317" class="cb cb3">
+                    <label for="c1-317" class="layer lev1">❖</label>
+
+                    <span class="letter">s</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-318" class="cb">
+                    <label for="c3-318" class="layer lev3">❉</label>
+
+                    <input type="checkbox" id="c2-318" class="cb">
+                    <label for="c2-318" class="layer lev2">✦</label>
+
+                    <input type="checkbox" id="c1-318" class="cb cb3">
+                    <label for="c1-318" class="layer lev1">❉</label>
+
+                    <span class="letter">l</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-319" class="cb">
+                    <label for="c3-319" class="layer lev3">⚚︎</label>
+
+                    <input type="checkbox" id="c2-319" class="cb">
+                    <label for="c2-319" class="layer lev2">✫</label>
+
+                    <input type="checkbox" id="c1-319" class="cb cb3">
+                    <label for="c1-319" class="layer lev1">☆</label>
+
+                    <span class="letter">e</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-320" class="cb">
+                    <label for="c3-320" class="layer lev3">✲</label>
+
+                    <input type="checkbox" id="c2-320" class="cb">
+                    <label for="c2-320" class="layer lev2">✬</label>
+
+                    <input type="checkbox" id="c1-320" class="cb cb3">
+                    <label for="c1-320" class="layer lev1">✦</label>
+
+                    <span class="letter">p</span>
+                </span>
+                <span class="character">
+                    <input type="checkbox" id="c3-321" class="cb">
+                    <label for="c3-321" class="layer lev3">✢</label>
+
+                    <input type="checkbox" id="c2-321" class="cb">
+                    <label for="c2-321" class="layer lev2">✷</label>
+
+                    <input type="checkbox" id="c1-321" class="cb cb3">
+                    <label for="c1-321" class="layer lev1">✱</label>
+
+                    <span class="letter">t</span>
+                </span>
+            </span>
+        </div>
+        </div>
+    </body>
+</html>
